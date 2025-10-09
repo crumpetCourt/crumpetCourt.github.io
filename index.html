@@ -10,6 +10,9 @@
 </head>
 
 <body>
+     <audio controls autoplay>
+        <source src="men/fanfare.mp3" type="audio/mpeg">
+    </audio> 
     <!-- Crumpet Header -->
     <header>
         <h1>CRUMPET COURT OFFICIAL WEBSITE</h1>
@@ -33,15 +36,43 @@
             Crumpet COURT
         </h2>
         <p>The official Crumpet Court website.</p>
-        <img src="men/face.png" alt="A face">
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mcqN4ZmhWl8?si=t-EW9U-XYwJQZ4sL"
+        <img src="men/face.webp" alt="A face">
+        <div class="vid-container">
+            <h2 class="tu1">To think different.</h2>
+            <h2 class="tu2">To play different.</h2>
+        </div>
+        <iframe width="1280" height="720" src="https://www.youtube-nocookie.com/embed/mcqN4ZmhWl8?si=t-EW9U-XYwJQZ4sL"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
         </iframe>
-        
-        <p>MORE COMING SOON</p>
+        <p class="memorandum">Crumpet Memorandum.<br>Crumpet Memorandum.<br>Crumpet Memorandum.<br>Crumpet Memorandum.<br>Crumpet Memorandum.<br>Crumpet Memorandum.<br>Crumpet Memorandum.</p>
+    </div>
+    <div class="where-to-watch">
+        <h2>IT'S TIME TO WATCH.</h2>
+        <div class="channel-container">
+            <div class="imgcontain"><img src="men/logo.jpg" alt="Man holding ice cream"></div>
+            <br>
+            <a href="https://www.youtube.com/@crumpetcourt"><p>Crumpet Court on Youtube</p></a>
+        </div>
+        <h2 style="font-size:75px;margin-top:8rem;">Socials</h2>
+        <div class="socials-container">
+            <a href="facebook.com/people/Crumpet-Court/100077280504266"><img src="men/facebook.png"></a>
+            <a href="facebook.com/people/Crumpet-Court/100077280504266"><img src="men/facebook.png"></a>
+            <a href="facebook.com/people/Crumpet-Court/100077280504266"><img src="men/facebook.png"></a>
+            <a href="facebook.com/people/Crumpet-Court/100077280504266"><img src="men/facebook.png"></a>
+            <a href="facebook.com/people/Crumpet-Court/100077280504266"><img src="men/facebook.png"></a>
+            <a href="facebook.com/people/Crumpet-Court/100077280504266"><img src="men/facebook.png"></a>
+        </div>
     </div>
 </body>
+<script>
+    window.onload = function() {
+        setTimeout(function() {
+            var audio = new Audio('men/fanfare.mp3');
+            audio.play();
+        }, 5000);
+    };
+</script>
 
 </html>
