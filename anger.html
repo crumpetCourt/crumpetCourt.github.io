@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crumpet Court</title>
+    <link rel="stylesheet" type="text/css" href="css/beast.css">
+    <link rel="icon" type="image/x-icon" href="men/favicon.jpg">
+    <meta name="description"
+        content="The official Crumpet Court website. Crumpet Court YouTube channel. Official website with server and beast capabilities...">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            transition: background 0.03s;
+            font-family: sans-serif;
+            background-color: white;
+        }
+
+        #rage-bar {
+            width: 300px;
+            height: 25px;
+            background: #eee;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            margin: 20px auto;
+        }
+
+        #rage-fill {
+            width: 0%;
+            height: 100%;
+            background: red;
+            transition: width 0.3s ease;
+        }
+
+        #rage-container {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 50px;
+            margin-bottom: 430px;
+        }
+
+        #emoji-explosion {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 24px;
+            animation: spin 2s linear infinite, bounce 1s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+
+        .bouncing-word {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            animation: bounceWord 1s ease-in-out infinite alternate;
+            z-index: 10000;
+            pointer-events: none;
+        }
+
+        button {
+            height: initial;
+            background-color: lightgrey;
+            color: initial;
+            padding: 5px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50px);
+            }
+        }
+
+        @keyframes bounceWord {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Crumpet Header -->
+    <header>
+        <h1>CRUMPET COURT OFFICIAL WEBSITE</h1>
+        <div class="buttons">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT CRUMPOET COURT</a>
+            <a href="lore.html">LORE</a>
+            <a href="https://www.youtube.com/@crumpetcourt">Crumpet Court YouTube</a>
+            <a href="beast.html">Beast</a>
+        </div>
+    </header>
+
+    <div id="rage-container">
+        Rage Meter:
+        <div id="rage-bar">
+            <div id="rage-fill"></div>
+        </div>
+        <button onclick="increaseRage()">GTRRRR!!! 😡🔥</button>
+    </div>
+
+    <div id="emoji-explosion"></div>
+    <div id="bouncing-words"></div>
+
+        <!-- Futa -->
+    <footer>
+        <p style="text-align: center;color:coral;">Provided by Parick Bosamed</p>
+    </footer>
+
+    <script>
+        let rage = 0;
+        const emojis = ["😡", "🤬", "💥", "🔥", "💣", "💢", "😤", "🤯", "👿", "😾"];
+        let strobeIntervalId = null;
+        
+
+        function increaseRage() {
+            rage += 10;
+            angry1 = new Audio('men/angry1.wav');
+            angry1.play();
+            if (rage > 100) rage = 100;
+            document.getElementById("rage-fill").style.width = rage + "%";
+            if (rage === 100) triggerExplosion();
+        }
+
+        function triggerExplosion() {
+            const container = document.getElementById("emoji-explosion");
+
+            // Audio
+            angry2 = new Audio('men/angry2.mp3');
+            angry2.play();
+            angry3 = new Audio('men/angry3.mp3');
+            angry3.play();
+            angry4 = new Audio('men/angry4.mp3');
+            angry4.play();
+            angry5 = new Audio('men/angry5.mp3');
+            angry5.play();
+            angry6 = new Audio('men/angry6.mp3');
+            angry6.play();
+
+            // Crowd boo
+            setInterval(() => {
+                angry6 = new Audio('men/angry6.mp3');
+                angry6.play();
+            }, 333);
+            
+            // Continuous strobe
+            if (!strobeIntervalId) {
+                const strobeColors = ["red", "white", "black"];
+                let strobeIndex = 0;
+                strobeIntervalId = setInterval(() => {
+                    document.body.style.background = strobeColors[strobeIndex % 3];
+                    strobeIndex++;
+                }, 150);
+            }
+
+            // Continuous shake
+            setInterval(() => {
+                document.body.style.transform = `translate(${(Math.random() - 0.5) * 30}px, ${(Math.random() - 0.5) * 30}px)`;
+            }, 30);
+
+            // Repeatedly spawn falling emojis
+            setInterval(() => {
+                spawnFallingEmoji(container);
+            }, 5); // many emojis over time, adjust if needed
+        }
+
+        function spawnFallingEmoji(container) {
+            const emoji = document.createElement("div");
+            emoji.className = "emoji";
+            emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+            // Start slightly above the screen
+            let x = Math.random() * window.innerWidth;
+            let y = -50;
+            const speedY = 2 + Math.random() * 10;       // fall speed
+            const speedX = (Math.random() - 0.5) * 5;   // horizontal drift
+
+            emoji.style.position = "absolute";
+            emoji.style.left = x + "px";
+            emoji.style.top = y + "px";
+            emoji.style.fontSize = (24 + Math.random() * 50) + "px";
+
+            container.appendChild(emoji);
+
+            function fall() {
+                y += speedY;
+                x += speedX;
+
+                emoji.style.top = y + "px";
+                emoji.style.left = x + "px";
+
+                if (y > window.innerHeight + 50) {
+                    emoji.remove();
+                    return;
+                }
+
+                requestAnimationFrame(fall);
+            }
+
+            requestAnimationFrame(fall);
+        }
+    </script>
+
+
+</body>
+
+</html>
