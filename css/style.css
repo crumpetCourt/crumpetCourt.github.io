@@ -136,6 +136,7 @@ button {
     width: fit-content;
     display: flex;
     margin: auto;
+    margin-bottom: 100px;
     gap: 50px;
 }
 
@@ -146,4 +147,9 @@ button {
 .socials-container img {
     height: 100px;
     width: 100px;
+}
+
+footer {
+    background-color: darkred;
+    height: 200px;
 }
