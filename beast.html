@@ -26,12 +26,14 @@
 
     <div class="coming-soon-section">
         <div class="beast-container">
-            <img src="men/beast.webp" alt="Beast tied up in a burning building">
+            <img src="men/beast.webp" alt="Beast tied up in a burning building" id="thebeast">
         </div>
 
         <h2>BEAST CLICKER</h2>
         <p>Coming Soon</p>
-        <a href="anger.html"><p>Angry?</p></a>
+        <a href="anger.html">
+            <p>Angry?</p>
+        </a>
     </div>
 
 
@@ -40,8 +42,27 @@
 
     <!-- Futa -->
     <footer>
-        
+
     </footer>
 </body>
+<script>
+    window.onload = function () {
+        // 1. Dynamically create the audio element and set its source
+        var audio = new Audio('men/seeyouagain.wav'); // Replace 'audio-file.mp3' with your actual audio file name.
+
+        // 2. Play the audio immediately
+        audio.play();
+
+        // 3. Get the image element
+        var image = document.getElementById("thebeast");
+
+        // 4. Wait 1.5 seconds before starting the fade-in effect
+        setTimeout(function () {
+            // 5. Fade the image in by changing its opacity (using JavaScript)
+            image.style.transition = 'opacity 4s ease-in';  // Apply transition for 8 seconds
+            image.style.opacity = 1;  // Set opacity to 1 after the delay
+        }, 2800);  // 1500 ms = 1.5 seconds
+    };
+</script>
 
 </html>
