@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crumpet Court</title>
-    <link rel="stylesheet" type="text/css" href="css/beast.css">
-    <link rel="icon" type="image/x-icon" href="men/favicon.jpg">
+    <link rel="stylesheet" type="text/css" href="/css/beast.css">
+    <link rel="icon" type="image/x-icon" href="/men/favicon.jpg">
     <meta name="description"
         content="The official Crumpet Court website. Crumpet Court YouTube channel. Official website with server and beast capabilities...">
 
@@ -120,11 +120,11 @@
     <header>
         <h1>CRUMPET COURT OFFICIAL WEBSITE</h1>
         <div class="buttons">
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT CRUMPOET COURT</a>
-            <a href="lore.html">LORE</a>
+            <a href="/">HOME</a>
+            <a href="/about/">ABOUT CRUMPOET COURT</a>
+            <a href="/lore/">LORE</a>
             <a href="https://www.youtube.com/@crumpetcourt">Crumpet Court YouTube</a>
-            <a href="beast.html">Beast</a>
+            <a href="/beast/">Beast</a>
         </div>
     </header>
 
@@ -139,6 +139,8 @@
     <div id="emoji-explosion"></div>
     <div id="bouncing-words"></div>
 
+    <br><br>
+
         <!-- Futa -->
     <footer>
         <p style="text-align: center;color:coral;">Provided by Parick Bosamed</p>
@@ -152,7 +154,7 @@
 
         function increaseRage() {
             rage += 10;
-            angry1 = new Audio('men/angry1.wav');
+            angry1 = new Audio('/men/angry1.wav');
             angry1.play();
             if (rage > 100) rage = 100;
             document.getElementById("rage-fill").style.width = rage + "%";
@@ -163,20 +165,20 @@
             const container = document.getElementById("emoji-explosion");
 
             // Audio
-            angry2 = new Audio('men/angry2.mp3');
+            angry2 = new Audio('/men/angry2.mp3');
             angry2.play();
-            angry3 = new Audio('men/angry3.mp3');
+            angry3 = new Audio('/men/angry3.mp3');
             angry3.play();
-            angry4 = new Audio('men/angry4.mp3');
+            angry4 = new Audio('/men/angry4.mp3');
             angry4.play();
-            angry5 = new Audio('men/angry5.mp3');
+            angry5 = new Audio('/men/angry5.mp3');
             angry5.play();
-            angry6 = new Audio('men/angry6.mp3');
+            angry6 = new Audio('/men/angry6.mp3');
             angry6.play();
 
             // Crowd boo
             setInterval(() => {
-                angry6 = new Audio('men/angry6.mp3');
+                angry6 = new Audio('/men/angry6.mp3');
                 angry6.play();
             }, 333);
             
@@ -198,7 +200,7 @@
             // Repeatedly spawn falling emojis
             setInterval(() => {
                 spawnFallingEmoji(container);
-            }, 5); // many emojis over time, adjust if needed
+            }, 5);
         }
 
         function spawnFallingEmoji(container) {
