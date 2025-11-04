@@ -35,7 +35,7 @@
 </body>
 
 <script>
-    window.onload = function () {
+    window.onload = setTimeout(function () {
         // 1. Dynamically create the audio element and set its source
         var audio = new Audio('/men/seeyouagain.wav'); // Replace 'audio-file.mp3' with your actual audio file name.
 
@@ -51,7 +51,7 @@
             image.style.transition = 'opacity 3s ease-in';  // Apply transition for 8 seconds
             image.style.opacity = 1;  // Set opacity to 1 after the delay
         }, 2800);  // 1500 ms = 1.5 seconds
-    };
+    }, 1000);
 </script>
 
 </html>
