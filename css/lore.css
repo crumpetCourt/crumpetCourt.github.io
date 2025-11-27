@@ -56,38 +56,108 @@ button {
     background-color: white;
 }
 
-.coming-soon-section {
-    color: red;
-}
 
-.beast-container {
-    width: 100%;
-    height: 600px;
-    margin: 50px auto;
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 5rem;
+    font-family: cursive;
+}
+.char-container {
+    width: 85%;
+    height: 500px;
+    border: 1px solid lime;
+    margin: 8rem auto;
     display: flex;
-    justify-content: center;
 }
 
-.beast-container img {
-    opacity: 0;
-    transition: opacity 8s ease-in;
+.char-container img {
+    height: 100%;
 }
 
-.coming-soon-section h2 {
-    text-align: center;
-    font-size: 8rem;
-    margin: 50px 0 0;
+.text-container {
+    color: white;
 }
 
-.coming-soon-section p {
-    text-align: center;
+.text-container h3 {
+    font-size: 4rem;
+}
+
+.text-container p {
     font-size: 2rem;
 }
 
-.coming-soon-section a p {
-    text-align: center;
-    font-size: 20px;
-    margin-top: 50px;
+/* Cener */
+
+ /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.cena-container {
+  background-color: transparent;
+  width: 500px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.cena-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.cena-container:hover .cena-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.cena-front, .cena-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.cena-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.cena-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+} 
+
+
+/* Set initial state of the image, it is positioned off-screen */
+.cena-peek {
+    position: fixed;
+    bottom: -800px; /* Start from below the screen */
+    left: 75%;
+    transition: all 1s ease;
+    z-index: 9999;
+}
+
+.cena-peek img {
+    width: 400px;
+}
+
+/* When the animation is triggered, the image moves up */
+.cena-peek.show {
+    bottom: -400px; /* Move the image up */
+    opacity: 1;
+}
+
+/* After the image shows, it will move back down after 1 second */
+.cena-peek.hide {
+    bottom: -800px; /* Move the image down */
+    transition: all 1s ease 0.5s; /* Delay the movement back */
 }
 
 footer {

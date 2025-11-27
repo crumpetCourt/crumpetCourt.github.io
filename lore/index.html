@@ -24,34 +24,169 @@
         </div>
     </header>
 
-    <div class="beast-container">
-        <img src="/men/cheney.jpeg" alt="Beast tied up in a burning building" id="thebeast">
+    <h2>MEET THE CHARACTERS</h2>
+    <div class="char-container">
+        <img src="/men/char_mario.webp" alt="Mario" width="600">
+        <div class="text-container">
+            <h3>Mario</h3>
+            <p>He 's the main characters,. After the death of Lugigi, Mario has to go on an adventure to throw bowser in
+                the lava.</p>
+            <p>He knows how to cast fire balls</p>
+            <p>Let a go 🐢🍄</p>
+        </div>
     </div>
+    <div class="char-container">
+        <div class="text-container">
+            <h3>Trump</h3>
+            <p>The most powerful Crumpet Court character. Trump has super powers like strength, energy blastings(from
+                his hair like what Superman/Ares/Nostrilboy would'na like in their lifetime? It even kills Thatch(his
+                body guards? I bet Axe or something)., </p>
+            <p>After SEASON 2, Trump has become president and is most poewrful. Now this may change when we first found
+                in SE2 finale with H.Ung and Mr Snoo in his last fight together in an unseen corner (at sea with C4?):
+                prince andrew under fire. ignore.</p>
+        </div>
+        <img src="/men/trump.jpeg" alt="Donald Trump" width="600">
+    </div>
+    <div class="char-container">
+        <img src="/men/trump.jpg" alt="Donald Trump" width="600">
+        <div class="text-container">
+            <h3>Luigi</h3>
+            <p>Luigi has died when bowser shot him with a fire.</p>
+        </div>
+    </div>
+    <div class="char-container">
+        <div class="text-container">
+            <h3>John Cena</h3>
+            <p>One of the four brothers, the most powerful Crumpet Court character. A lot of people misunderstod this
+                misunderstod character.</p>
+            <p>John Cena is very powerful and can fight people really . He has the ability to turn into a genie,
+                but only somtimes and he cannot grant wishes</p>
+        </div>
+
+        <div class="cena-container">
+            <div class="cena-inner">
+                <div class="cena-front">
+                    <img src="/men/cena.jpg" alt="Avatar">
+                </div>
+                <div class="cena-back">
+                    <img src="/men/genie.webp" alt="Avatar">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="char-container">
+        <img src="/men/elonmusk.jpg" alt="Donald Trump" width="600">
+        <div class="text-container">
+            <h3>Elon Musk</h3>
+            <p>Elon Musk teamed up with Joker to steal all the gold of the castle. He is the most powerful character.
+            </p>
+            <p>After joker death, Elon Musk is corrently teamied up with Trump to run presidnecy..</p>
+        </div>
+    </div>
+    <div class="cena-peek" id="cenaPeek">
+        <img src="/men/cenabody.png" alt="Cena" />
+    </div>
+    <div class="char-container">
+        <div class="text-container">
+            <h3>Joker</h3>
+            <p>Joker has been a character since very start, through development but for most he came late- game," Game4
+                Devel. Trying to steal gold with Musk, Musket & Drum gun; it did a huge blast.</p>
+            <p style="color: red;">Joker has died when he was killed by Mario for killing he Bowser.</p>
+        </div>
+        <img src="/men/joker.webp" alt="Donald Trump" width="600">
+    </div>
+    <div class="char-container">
+        <img src="/men/bowserX.jpg" alt="Donald Trump" width="600">
+        <div class="text-container">
+            <h3>Bowser's</h3>
+            <p>Bowser is a big villain and killed luigi, making Mario want revenge.</p>
+            <p>Bowser was almost defeated by Maro, when Joker shot bowser and killed him, which mario did not want to
+                kill him just throw him in the lava.</p>
+        </div>
+    </div>
+    <div class="char-container">
+        <div class="text-container">
+            <h3>Boris</h3>
+            <p style="margin-top: -3rem;font-size:25px;word-spacing: 1rem;color:lightgray;">MOST POWERFUL CHARACTER</p>
+            <p>TWIST! Boris has died due to unknown resason.s Boris has the power of BONG (aka GONG), allowing him to
+                controll evrything. If he dead then Everything Is Destructing!</p>
+            <p>He is one of the four borthers.</p>
+        </div>
+        <img src="/men/boris.webp" alt="Donald Trump" width="600">
+    </div>
+
 
     <!-- Futa -->
     <footer>
 
     </footer>
 </body>
-
 <script>
-    window.onload = function () {
-        // 1. Dynamically create the audio element and set its source
-        var audio = new Audio('/men/seeyouagain.wav'); // Replace 'audio-file.mp3' with your actual audio file name.
+    let inactivityTimeout;
+    let animationTimeout;
 
-        // 2. Play the audio immediately
-        audio.play();
+    const animatedImage = document.getElementById('cenaPeek');
+    const elonMuskDiv = document.querySelector('.char-container:nth-of-type(5)'); // Adjust this selector if necessary
 
-        // 3. Get the image element
-        var image = document.getElementById("thebeast");
+    // Flag to track if the Elon Musk div has been seen
+    let isElonMuskVisible = false;
 
-        // 4. Wait 1.5 seconds before starting the fade-in effect
-        setTimeout(function () {
-            // 5. Fade the image in by changing its opacity (using JavaScript)
-            image.style.transition = 'opacity 3s ease-in';  // Apply transition for 8 seconds
-            image.style.opacity = 1;  // Set opacity to 1 after the delay
-        }, 2800);  // 1500 ms = 1.5 seconds
-    };
+    // Check if the animation has already been played by reading from localStorage
+    const hasPlayedAnimation = localStorage.getItem('cenaAnimationPlayed') === 'true';
+
+    // If the animation has already been played, don't start it again
+    if (hasPlayedAnimation) {
+        animatedImage.classList.add('hide'); // Ensure the image is hidden initially
+    }
+
+    // Function to reset inactivity timer
+    function resetInactivityTimer() {
+        if (!isElonMuskVisible || hasPlayedAnimation) return; // Only trigger inactivity timer if Elon Musk div is visible and animation hasn't played
+
+        clearTimeout(inactivityTimeout);
+        clearTimeout(animationTimeout);
+
+        // Wait 10 seconds of inactivity before showing the image
+        inactivityTimeout = setTimeout(() => {
+            // Trigger animation to show the image
+            animatedImage.classList.add('show');
+
+            // After 1 second, hide the image again
+            animationTimeout = setTimeout(() => {
+                animatedImage.classList.remove('show');
+                animatedImage.classList.add('hide');
+
+                // After the animation has played, set the flag in localStorage
+                localStorage.setItem('cenaAnimationPlayed', 'true');
+            }, 1000);
+        }, 2000); // 10 seconds of inactivity
+    }
+
+    // Intersection Observer to detect when the "Elon Musk" div is in view
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.target === elonMuskDiv) {
+                if (entry.isIntersecting) {
+                    // Elon Musk div is now in view, start tracking inactivity
+                    isElonMuskVisible = true;
+                    resetInactivityTimer(); // Start the inactivity timer now
+                    observer.unobserve(elonMuskDiv); // Stop observing once it's visible
+                }
+            }
+        });
+    }, {
+        threshold: 0.5 // The div should be at least 50% visible to trigger the event
+    });
+
+    // Start observing the Elon Musk div
+    observer.observe(elonMuskDiv);
+
+    // Listen for user activity (mouse movement, click, or keypress)
+    window.addEventListener('mousemove', resetInactivityTimer);
+    window.addEventListener('click', resetInactivityTimer);
+    window.addEventListener('keypress', resetInactivityTimer);
+
+
 </script>
 
 </html>
