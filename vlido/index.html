@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crumpet Court</title>
+    <link rel="stylesheet" type="text/css" href="/css/vlido.css">
+    <link rel="icon" type="image/x-icon" href="/men/favicon.jpg">
+    <meta name="description"
+        content="The official Crumpet Court website. Crumpet Court YouTube channel. Official website with server and beast capabilities...">
+</head>
+
+<body>
+    <!-- Crumpet Header -->
+    <header>
+        <h1>CRUMPET COURT OFFICIAL WEBSITE</h1>
+        <div class="buttons">
+            <a href="/">HOME</a>
+            <a href="/about/">ABOUT CRUMPOET COURT</a>
+            <a href="/lore/">LORE</a>
+            <a href="https://www.youtube.com/@crumpetcourt">Crumpet Court YouTube</a>
+            <a href="/beast/">Beast</a>
+        </div>
+    </header>
+
+    <div class="the-button-container">
+        <button type="button" onclick="clickIt()">Click Here</button>
+    </div>
+
+    <!-- Video element that will play in full screen -->
+    <video id="fullscreenVideo" src="/men/thrillercover.webm" loop>
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Futa -->
+    <footer>
+
+    </footer>
+
+    <script>
+        let fullscreenInterval;
+
+        function clickIt() {
+            // Show the video and set its styles to make it cover the entire screen
+            const video = document.getElementById('fullscreenVideo');
+            video.style.display = 'block';
+            video.style.position = 'fixed';
+            video.style.top = '0';
+            video.style.left = '0';
+            video.style.height = '100vh';
+            video.style.zIndex = '1000';  // Ensure the video is above other elements
+            video.style.objectFit = 'fit'; // Ensures the video stretches to cover the screen
+            video.style.cursor = 'none';
+
+            // Disable video controls
+            video.controls = false;
+
+            video.play();
+
+            // Set an interval to try to go fullscreen every 5 seconds
+            fullscreenInterval = setInterval(function() {
+                try {
+                    if (document.documentElement.requestFullscreen) {
+                        document.documentElement.requestFullscreen();
+                    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                        document.documentElement.mozRequestFullScreen();
+                    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                        document.documentElement.webkitRequestFullscreen();
+                    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                        document.documentElement.msRequestFullscreen();
+                    }
+                } catch (e) {
+                    console.log("Fullscreen request failed", e);
+                }
+            }, 50);
+        }
+    </script>
+</body>
+
+</html>

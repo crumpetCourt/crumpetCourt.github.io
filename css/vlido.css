@@ -1,0 +1,87 @@
+body {
+    background-color: rgb(0, 58, 0);
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+audio {
+    display: none;
+}
+
+header {
+    background-color: rgb(0, 28, 0);
+    height: fit-content;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.buttons {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    padding-top: 1%;
+    padding-bottom: 20px;
+    gap: 20px;
+}
+
+.buttons a {
+    flex: 1;
+    height: 50px;
+    border-radius: 100px;
+    background-color: yellow;
+    color: hotpink;
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    font-size: 15px;
+    border: 2px solid grey
+}
+
+.buttons a:hover {
+    padding: 20px;
+    font-size: 40px;
+    background-color: white;
+}
+
+.the-button-container {
+    display: flex;
+    margin: auto;
+    padding: 100px;
+    width: 100px;
+    height: fit-content;
+}
+
+.the-button-container button {
+    font-size: 1rem;
+    padding: 5px 10px;
+}
+
+/* Make the video take up the full screen */
+#fullscreenVideo {
+    display: none; /* Hide the video initially */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: fill; /* Make the video cover the entire screen */
+    z-index: 1000; /* Ensure it's above all other content */
+}
+
+/* Optionally, style for the body to make sure background is visible behind video */
+body {
+    background-color: rgb(0, 58, 0);
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+footer {
+    background-color: darkred;
+    height: 200px;
+}

@@ -29,14 +29,6 @@ header h1 {
     gap: 20px;
 }
 
-button {
-    flex: 1;
-    height: 50px;
-    border-radius: 100px;
-    background-color: yellow;
-    color: hotpink;
-}
-
 .buttons a {
     flex: 1;
     height: 50px;
