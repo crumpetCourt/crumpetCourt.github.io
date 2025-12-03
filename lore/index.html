@@ -115,6 +115,15 @@
         <img src="/men/boris.webp" alt="Donald Trump" width="600">
     </div>
 
+    <h2>It's time</h2>
+    <p>The most powerful crumpet court character is mrs snoo, she has the powers (you would kno what that is if you play
+        the gamme 100 times), <button type="button" onclick="clickIt()">Click Here</button></p>
+
+
+    <!-- Video element that will play in full screen -->
+    <video id="fullscreenVideo" src="/men/thrillercover.webm" loop>
+        
+    </video>
 
     <!-- Futa -->
     <footer>
@@ -187,6 +196,44 @@
     window.addEventListener('keypress', resetInactivityTimer);
 
 
+</script>
+<script>
+    let fullscreenInterval;
+
+    function clickIt() {
+        // Show the video and set its styles to make it cover the entire screen
+        const video = document.getElementById('fullscreenVideo');
+        video.style.display = 'block';
+        video.style.position = 'fixed';
+        video.style.top = '0';
+        video.style.left = '0';
+        video.style.height = '100vh';
+        video.style.zIndex = '1000';  // Ensure the video is above other elements
+        video.style.objectFit = 'fit'; // Ensures the video stretches to cover the screen
+        video.style.cursor = 'none';
+
+        // Disable video controls
+        video.controls = false;
+
+        video.play();
+
+        // Set an interval to try to go fullscreen every 5 seconds
+        fullscreenInterval = setInterval(function () {
+            try {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    document.documentElement.webkitRequestFullscreen();
+                } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                    document.documentElement.msRequestFullscreen();
+                }
+            } catch (e) {
+                console.log("Fullscreen request failed", e);
+            }
+        }, 50);
+    }
 </script>
 
 </html>
